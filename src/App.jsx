@@ -44,10 +44,11 @@ const App = () => {
       setError('Password must contain any special character')
       return;
     }
-    if(!/[A-Z]/.test(formData.password)){
-      setError('Password must contain any capital letter')
-      return;
-    }
+    if (!/(?=.*[A-Z])(?=.*[a-z])(?=.*\d)/.test(formData.password)) {
+  setError('Password must contain uppercase, lowercase, and a number');
+  return;
+}
+
 
     setUsers((prevUsers)=>[
       ...prevUsers,{
